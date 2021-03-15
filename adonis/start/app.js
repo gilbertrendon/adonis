@@ -32,7 +32,10 @@ const providers = [
 */
 const aceProviders = [
   '@adonisjs/lucid/providers/MigrationsProvider',
-  '@adonisjs/wow/providers/VowProvider'
+  '@adonisjs/wow/providers/VowProvider',
+  '@adonisjs/lucid/providers/LucidProvider',
+
+
 ]
 
 /*
