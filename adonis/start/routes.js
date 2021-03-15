@@ -15,5 +15,14 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const Database = use('Database')
 
-Route.on('/').render('welcome')
+//Route.on('/').render('welcome')
+Route.get('/', () => {
+    return {hello: 'Hello World!!'}
+})
+
+//Test Route with database connection
+Route.get('/database', async() => {
+    return await Database.table('users').select('*')
+})
