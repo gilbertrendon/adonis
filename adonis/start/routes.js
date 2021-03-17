@@ -28,4 +28,8 @@ Route.get('/database', async() => {
 })
 
 Route.get('category/list', 'CategoryController.index')
+
+//Post
 Route.post('category/create', 'CategoryController.store')
+
+Route.get('post/List', 'PostController.index')     
