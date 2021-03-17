@@ -26,3 +26,6 @@ Route.get('/', () => {
 Route.get('/database', async() => {
     return await Database.table('users').select('*')
 })
+
+Route.get('category/list', 'CategoryController.index')
+Route.post('category/create', 'CategoryController.store')
