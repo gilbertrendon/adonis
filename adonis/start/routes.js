@@ -31,5 +31,7 @@ Route.get('category/list', 'CategoryController.index')
 
 //Post
 Route.post('category/create', 'CategoryController.store')
+Route.post('create/posts', 'PostController.store')
+
 
 Route.get('post/List', 'PostController.index')     
