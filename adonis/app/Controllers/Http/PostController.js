@@ -10,7 +10,12 @@ const Post = use('App/Models/Post')
 
 class PostController {
     async index({request, response}){
-        return Post.all()
+        const posts= await Post
+        .query()
+        .with('user')
+        .with('categories')
+        .fetch()
+        return response.json(posts )
     }
 
     async store ({request, response}){
@@ -31,6 +36,15 @@ class PostController {
                 .status(e.status)
                 .send(e)
         }
+    }
+
+    async count(){
+        const posts = await Post
+        .query()
+        .where('status',true)
+        .count('* as total')
+
+       return posts[0]['total']
     }
 
 }
