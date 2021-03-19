@@ -36,3 +36,5 @@ Route.post('create/posts', 'PostController.store')
 
 Route.get('post/List', 'PostController.index')     
 Route.get('post/count', 'PostController.count')
+Route.get('post/:id', 'PostController.show')
+

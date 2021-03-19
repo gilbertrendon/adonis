@@ -7,6 +7,7 @@ const Post = use('App/Models/Post')
 /**@typedef {import('@adonisjs/framework/src/Request'} */
 /**@typedef {import('@adonisjs/framework/src/Response'} */
 //http://localhost:3333/post/List?_start=1&limit=1
+//http://localhost:3333/post/List?slug=post-2
 
 class PostController {
     async index({request, response}){
@@ -63,6 +64,10 @@ class PostController {
         .count('* as total')
 
        return posts[0]['total']
+    }
+
+    async show ({params}){
+        return await Post.findBy('id', params.id)
     }
 
 }
