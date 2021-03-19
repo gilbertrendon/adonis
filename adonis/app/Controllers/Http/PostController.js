@@ -6,16 +6,18 @@ const Post = use('App/Models/Post')
 
 /**@typedef {import('@adonisjs/framework/src/Request'} */
 /**@typedef {import('@adonisjs/framework/src/Response'} */
-
+//http://localhost:3333/post/List?_start=1&limit=1
 
 class PostController {
     async index({request, response}){
+        const {_limit, _start} = request.all()
         const posts= await Post
         .query()
         .with('user')
         .with('categories')
-        .fetch()
-        return response.json(posts )
+        .paginate(_start, _limit)
+        
+        return posts.rows
     }
 
     async store ({request, response}){
